@@ -1,0 +1,17 @@
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\addressbook_web_test.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\addressbook_web_test.pdb
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csprojResolveAssemblyReference.cache
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csproj.CoreCompileInputs.cache
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csproj.CopyComplete
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.pdb
