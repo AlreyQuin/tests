@@ -20,4 +20,3 @@ D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_tes
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\nunit.framework.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\WebDriver.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\WebDriver.Support.xml
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csprojResolveAssemblyReference.cache

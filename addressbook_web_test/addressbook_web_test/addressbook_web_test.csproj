@@ -61,8 +61,10 @@
     <Compile Include="AccountData.cs" />
     <Compile Include="GroupCreationTests.cs" />
     <Compile Include="GroupData.cs" />
+    <Compile Include="NewUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitTest1.cs" />
+    <Compile Include="UserCreationTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

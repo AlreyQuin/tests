@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class GroupCreationTests
+    public class UserCreationTest
     {
         private IWebDriver driver;
         private StringBuilder verificationErrors;
@@ -43,45 +43,55 @@ namespace AddressbookWebTest
         }
 
         [Test]
-        public void GroupCreation()
+        public void CreationUser()
         {
             OpenPage();
             Login(new AccountData("admin", "secret"));
-            OpenGroupPage();
-            InitCreateGroup();
+            GoToHomePage();
+            CreateNewUser();
 
-            GroupData group = new GroupData("test");
-            group.Header = "test_header";
-            group.Footer = "test_footer";
+            NewUserData newuser = new NewUserData("Tony", "Stark");
+            newuser.Middlename = "Edward";
+            newuser.Nickname = "IronMan";
+            newuser.Company = "Stark Industries";
+            newuser.Address = "USA, New-York";
+            newuser.Bday = "10";
+            newuser.Bmonth = "March";
+            newuser.Byear = "1963";
 
-            FillGroupForm(group);
-            ReturnGroupPage();
+            FillUserForm(newuser);
+            GoToHomePage();
         }
 
-        private void ReturnGroupPage()
+        private void FillUserForm(NewUserData data)
         {
-            driver.FindElement(By.LinkText("groups")).Click();
+            driver.FindElement(By.Name("firstname")).Clear();
+            driver.FindElement(By.Name("firstname")).SendKeys(data.Firstname);
+            driver.FindElement(By.Name("middlename")).Clear();
+            driver.FindElement(By.Name("middlename")).SendKeys(data.Middlename);
+            driver.FindElement(By.Name("lastname")).Clear();
+            driver.FindElement(By.Name("lastname")).SendKeys(data.Lastname);
+            driver.FindElement(By.Name("nickname")).Clear();
+            driver.FindElement(By.Name("nickname")).SendKeys(data.Nickname);
+            driver.FindElement(By.Name("company")).Clear();
+            driver.FindElement(By.Name("company")).SendKeys(data.Company);
+            driver.FindElement(By.Name("address")).Clear();
+            driver.FindElement(By.Name("address")).SendKeys(data.Address);
+            new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText(data.Bday);
+            new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(data.Bmonth);
+            driver.FindElement(By.Name("byear")).Clear();
+            driver.FindElement(By.Name("byear")).SendKeys("1963");
+            driver.FindElement(By.XPath("//input[@value='Enter']")).Click();
         }
 
-        private void FillGroupForm(GroupData group)
+        private void CreateNewUser()
         {
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
-            driver.FindElement(By.Name("submit")).Click();
+            driver.FindElement(By.LinkText("add new")).Click();
         }
 
-        private void InitCreateGroup()
+        private void GoToHomePage()
         {
-            driver.FindElement(By.Name("new")).Click();
-        }
-
-        private void OpenGroupPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
+            driver.FindElement(By.LinkText("home")).Click();
         }
 
         private void Login(AccountData account)
@@ -147,4 +157,3 @@ namespace AddressbookWebTest
         }
     }
 }
-
