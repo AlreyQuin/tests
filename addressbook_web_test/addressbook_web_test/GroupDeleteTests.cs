@@ -14,7 +14,7 @@ namespace AddressbookWebTest
         public void DeleteGroupTest()
         {
             OpenPage();
-            Login(new AccountData("admin", "secret"));
+            Login(new DataAccount("admin", "secret"));
             OpenGroupPage();
             SelectGroup(1);
             DeleteGroup();

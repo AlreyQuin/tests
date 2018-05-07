@@ -58,12 +58,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountData.cs" />
+    <Compile Include="DataAccount.cs" />
     <Compile Include="BaseClassTest.cs" />
     <Compile Include="GroupCreationTests.cs" />
-    <Compile Include="GroupData.cs" />
+    <Compile Include="DataGroup.cs" />
     <Compile Include="GroupDeleteTests.cs" />
-    <Compile Include="NewUserData.cs" />
+    <Compile Include="HelperLogin.cs" />
+    <Compile Include="DataNewUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCreationTest.cs" />
   </ItemGroup>

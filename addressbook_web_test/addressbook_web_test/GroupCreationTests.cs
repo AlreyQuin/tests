@@ -14,11 +14,11 @@ namespace AddressbookWebTest
         public void GroupCreation()
         {
             OpenPage();
-            Login(new AccountData("admin", "secret"));
+            Login(new DataAccount("admin", "secret"));
             OpenGroupPage();
             InitCreateGroup();
 
-            GroupData group = new GroupData("test");
+            DataGroup group = new DataGroup("test");
             group.Header = "test_header";
             group.Footer = "test_footer";
 

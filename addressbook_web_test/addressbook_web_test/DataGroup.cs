@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AddressbookWebTest
 {
-    public class GroupData
+    public class DataGroup
     {
         private string name;
         private string header = "";
         private string footer = "";
 
-        public GroupData (string name)
+        public DataGroup(string name)
         {
             this.name = name;
         }

@@ -59,7 +59,7 @@ namespace AddressbookWebTest
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
         }
 
-        protected void Login(AccountData account)
+        protected void Login(DataAccount account)
         {
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys(account.Login);
@@ -83,7 +83,7 @@ namespace AddressbookWebTest
             driver.FindElement(By.Name("new")).Click();
         }
 
-        protected void FillGroupForm(GroupData group)
+        protected void FillGroupForm(DataGroup group)
         {
             driver.FindElement(By.Name("group_name")).Clear();
             driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
@@ -99,7 +99,7 @@ namespace AddressbookWebTest
             driver.FindElement(By.LinkText("add new")).Click();
         }
 
-        protected void FillUserForm(NewUserData data)
+        protected void FillUserForm(DataNewUser data)
         {
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys(data.Firstname);

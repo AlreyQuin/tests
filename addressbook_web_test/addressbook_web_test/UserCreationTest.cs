@@ -14,11 +14,11 @@ namespace AddressbookWebTest
         public void CreationUser()
         {
             OpenPage();
-            Login(new AccountData("admin", "secret"));
+            Login(new DataAccount("admin", "secret"));
             GoToHomePage();
             CreateNewUser();
 
-            NewUserData newuser = new NewUserData("Tony", "Stark");
+            DataNewUser newuser = new DataNewUser("Tony", "Stark");
             newuser.Middlename = "Edward";
             newuser.Nickname = "IronMan";
             newuser.Company = "Stark Industries";
