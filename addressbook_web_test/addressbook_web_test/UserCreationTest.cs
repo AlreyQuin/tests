@@ -13,10 +13,10 @@ namespace AddressbookWebTest
         [Test]
         public void CreationUser()
         {
-            OpenPage();
-            Login(new DataAccount("admin", "secret"));
-            GoToHomePage();
-            CreateNewUser();
+            helperNavigation.OpenPage();
+            helperLogin.Login(new DataAccount("admin", "secret"));
+            helperNavigation.GoToHomePage();
+            helperContact.CreateNewUser();
 
             DataNewUser newuser = new DataNewUser("Tony", "Stark");
             newuser.Middlename = "Edward";
@@ -27,8 +27,8 @@ namespace AddressbookWebTest
             newuser.Bmonth = "March";
             newuser.Byear = "1963";
 
-            FillUserForm(newuser);
-            GoToHomePage();
+            helperContact.FillUserForm(newuser);
+            helperNavigation.GoToHomePage();
         }
     }
 }
