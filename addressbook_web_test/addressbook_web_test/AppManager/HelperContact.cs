@@ -12,16 +12,47 @@ namespace AddressbookWebTest
     public class HelperContact : HelperBase
     {
 
-        public HelperContact(IWebDriver driver) 
-            : base(driver)
+        public HelperContact(ApplicationManager manager) 
+            : base(manager)
         {}
 
-        public void CreateNewUser()
+
+
+        public HelperContact New(DataNewUser data)
         {
-            driver.FindElement(By.LinkText("add new")).Click();
+            CreateNewUser();
+            FillUserForm(data);
+            AcceptCreateUser();
+            manager.Navigation.GoToHomePage();
+            return this;
         }
 
-        public void FillUserForm(DataNewUser data)
+        public HelperContact Delete(int v)
+        {
+            manager.Navigation.GoToHomePage();
+            CheckDeleteUser(v);
+            ClickDelete();
+            AcceptDelete();
+            return this;
+        }
+
+        public HelperContact Update(DataNewUser userData, int indexEdit)
+        {
+            manager.Navigation.GoToHomePage();
+            EditUser(indexEdit);
+            UpdateForm(userData);
+            UpdateUser();
+            manager.Navigation.GoToHomePage();
+            return this;
+        }
+
+        public HelperContact CreateNewUser()
+        {
+            driver.FindElement(By.LinkText("add new")).Click();
+            return this;
+        }
+
+        public HelperContact FillUserForm(DataNewUser data)
         {
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys(data.Firstname);
@@ -39,11 +70,60 @@ namespace AddressbookWebTest
             new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(data.Bmonth);
             driver.FindElement(By.Name("byear")).Clear();
             driver.FindElement(By.Name("byear")).SendKeys("1963");
+            return this;
         }
 
-        public void AcceptCreateUser()
+
+        public HelperContact UpdateForm(DataNewUser update)
+        {
+            driver.FindElement(By.Name("home")).Clear();
+            driver.FindElement(By.Name("home")).SendKeys(update.Home);
+            driver.FindElement(By.Name("mobile")).Clear();
+            driver.FindElement(By.Name("mobile")).SendKeys(update.Mobile);
+
+            return this;
+        }
+
+        public HelperContact AcceptCreateUser()
         {
             driver.FindElement(By.XPath("//input[@value='Enter']")).Click();
+            return this;
+        }
+
+        public HelperContact EditUser(int indexEdit)
+        {
+            driver.FindElement(By.XPath("(//img[@alt='Edit'])[" + indexEdit + "]")).Click();
+            return this;
+        }
+
+        public HelperContact UpdateUser()
+        {
+            driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
+            return this;
+        }
+
+        public HelperContact CheckDeleteUser(int indexDel)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + indexDel + "]")).Click();
+            return this;
+        }
+
+        public HelperContact ClickDelete()
+        {
+            driver.FindElement(By.XPath("//input[@value='Delete']")).Click();
+            return this;
+        }
+
+        /*      public HelperContact AcceptDelete()
+              {
+                  Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
+                  return this;
+              } */
+
+        public HelperContact AcceptDelete()
+        {
+            driver.SwitchTo().Alert().Accept();
+            return this;
         }
     }
 }

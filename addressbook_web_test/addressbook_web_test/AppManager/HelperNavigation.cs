@@ -13,8 +13,8 @@ namespace AddressbookWebTest
     {
         private string baseURL;
 
-        public HelperNavigation(IWebDriver driver, string baseURL) 
-            : base(driver)
+        public HelperNavigation(ApplicationManager manager, string baseURL) 
+            : base(manager)
         {
             this.baseURL = baseURL;
         }
@@ -22,11 +22,6 @@ namespace AddressbookWebTest
         public void OpenPage()
         {
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
-        }
-
-        public void OpenGroupPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
         }
 
         public void GoToHomePage()

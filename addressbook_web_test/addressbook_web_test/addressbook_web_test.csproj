@@ -60,10 +60,11 @@
   <ItemGroup>
     <Compile Include="AppManager\ApplicationManager.cs" />
     <Compile Include="Data\DataAccount.cs" />
+    <Compile Include="Tests\Groups\GroupUpdateTests.cs" />
     <Compile Include="Tests\BaseClassTest.cs" />
-    <Compile Include="Tests\GroupCreationTests.cs" />
+    <Compile Include="Tests\Groups\GroupCreateTests.cs" />
     <Compile Include="Data\DataGroup.cs" />
-    <Compile Include="Tests\GroupDeleteTests.cs" />
+    <Compile Include="Tests\Groups\GroupDeleteTests.cs" />
     <Compile Include="AppManager\HelperBase.cs" />
     <Compile Include="AppManager\HelperContact.cs" />
     <Compile Include="AppManager\HelperGroup.cs" />
@@ -71,7 +72,9 @@
     <Compile Include="Data\DataNewUser.cs" />
     <Compile Include="AppManager\HelperNavigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\UserCreationTest.cs" />
+    <Compile Include="Tests\Users\UserCreateTests.cs" />
+    <Compile Include="Tests\Users\UserDeleteTests.cs" />
+    <Compile Include="Tests\Users\UserUpdateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -29,10 +29,17 @@ namespace AddressbookWebTest
             baseURL = "http://localhost/";
 
             verificationErrors = new StringBuilder();
-            helperLogin = new HelperLogin(driver);
-            helperNavigation = new HelperNavigation(driver, baseURL);
-            helperGroup = new HelperGroup(driver);
-            helperContact = new HelperContact(driver);
+            helperLogin = new HelperLogin(this);
+            helperNavigation = new HelperNavigation(this, baseURL);
+            helperGroup = new HelperGroup(this);
+            helperContact = new HelperContact(this);
+        }
+
+
+        public IWebDriver Driver
+        {
+            get
+            { return driver; }
         }
 
         public void Stop()

@@ -12,8 +12,8 @@ namespace AddressbookWebTest
     public class HelperLogin : HelperBase
     {
 
-        public HelperLogin(IWebDriver driver) 
-            : base(driver)
+        public HelperLogin(ApplicationManager manager) 
+            : base(manager)
         {}
 
         public void Login(DataAccount account)
