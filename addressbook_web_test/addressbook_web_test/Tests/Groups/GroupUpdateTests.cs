@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class GroupUpdateTests : BaseClassTest
+    public class GroupUpdateTests : AuthBaseClassTest
     {
 
         [Test]
@@ -16,7 +16,12 @@ namespace AddressbookWebTest
 
             DataGroup newData = new DataGroup("test_2");
             newData.Footer = "Footer";
-            app.Groups.Update(1, newData);
+
+            DataGroup group = new DataGroup("test");
+            group.Header = "test_header";
+            group.Footer = "test_footer";
+
+            app.Groups.Update(1, newData, group);
         }
     }
 }

@@ -8,19 +8,19 @@ using NUnit.Framework;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class UserUpdateTest : BaseClassTest
+    public class UserUpdateTest : AuthBaseClassTest
     {
 
         [Test]
         public void UpdateUser()
         {
 
-
-            DataNewUser edit = new DataNewUser("Tony", "Stark");
+            DataNewUser newuser = new DataNewUser("Tony", "Stark");
+            DataNewUser edit = new DataNewUser("Virginia", "Potts");
             edit.Home = "555-7720";
             edit.Mobile = "777-3564";
 
-            app.Contacts.Update(edit, 2);
+            app.Contacts.Update(edit, 1, newuser);
 
         }
     }

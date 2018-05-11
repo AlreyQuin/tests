@@ -8,14 +8,13 @@ using NUnit.Framework;
 
 namespace AddressbookWebTest
 {
-    public class BaseClassTest
+    public class AuthBaseClassTest : BaseClassTest
     {
-        protected ApplicationManager app;
 
         [SetUp]
-        public void SetupApplicationManager()
+        public void SetupLogin()
         {
-            app = ApplicationManager.GetInstance();
+            app.Logon.Login(new DataAccount("admin", "secret"));
         }
     }
 }

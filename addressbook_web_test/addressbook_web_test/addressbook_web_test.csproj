@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppManager\ApplicationManager.cs" />
+    <Compile Include="Tests\LoginTests.cs" />
+    <Compile Include="Tests\AuthBaseClassTest.cs" />
     <Compile Include="Data\DataAccount.cs" />
     <Compile Include="Tests\Groups\GroupUpdateTests.cs" />
     <Compile Include="Tests\BaseClassTest.cs" />

@@ -26,8 +26,22 @@ namespace AddressbookWebTest
 
         public void GoToHomePage()
         {
+            if (driver.Url == baseURL + "addressbook/"
+                && IsElementPresent(By.XPath("//input[@value='Delete']")))
+            {
+                return;
+            }
             driver.FindElement(By.LinkText("home")).Click();
         }
 
+        public void OpenGroupPage()
+        {
+            if (driver.Url == baseURL + "addressbook/group.php"
+                && IsElementPresent(By.Name("new")))
+            {
+                return;
+            }
+            driver.FindElement(By.LinkText("groups")).Click();
+        }
     }
 }

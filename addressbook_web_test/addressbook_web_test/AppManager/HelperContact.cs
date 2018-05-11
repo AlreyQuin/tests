@@ -27,18 +27,34 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperContact Delete(int v)
+        public HelperContact Delete(int v, DataNewUser data)
         {
             manager.Navigation.GoToHomePage();
+            if (! FindUser())
+            {
+                CreateNewUser();
+                FillUserForm(data);
+                AcceptCreateUser();
+                manager.Navigation.GoToHomePage();
+            }
+
             CheckDeleteUser(v);
             ClickDelete();
             AcceptDelete();
             return this;
         }
 
-        public HelperContact Update(DataNewUser userData, int indexEdit)
+        public HelperContact Update(DataNewUser userData, int indexEdit, DataNewUser data)
         {
             manager.Navigation.GoToHomePage();
+            if (! FindUser())
+            {
+                CreateNewUser();
+                FillUserForm(data);
+                AcceptCreateUser();
+                manager.Navigation.GoToHomePage();
+            }
+
             EditUser(indexEdit);
             UpdateForm(userData);
             UpdateUser();
@@ -54,33 +70,20 @@ namespace AddressbookWebTest
 
         public HelperContact FillUserForm(DataNewUser data)
         {
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(data.Firstname);
-            driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys(data.Middlename);
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(data.Lastname);
-            driver.FindElement(By.Name("nickname")).Clear();
-            driver.FindElement(By.Name("nickname")).SendKeys(data.Nickname);
-            driver.FindElement(By.Name("company")).Clear();
-            driver.FindElement(By.Name("company")).SendKeys(data.Company);
-            driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys(data.Address);
-            new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText(data.Bday);
-            new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText(data.Bmonth);
-            driver.FindElement(By.Name("byear")).Clear();
-            driver.FindElement(By.Name("byear")).SendKeys("1963");
+            Type(By.Name("firstname"), data.Firstname);
+            Type(By.Name("middlename"), data.Middlename);
+            Type(By.Name("lastname"), data.Lastname);
+            Type(By.Name("nickname"), data.Nickname);
+            Type(By.Name("company"), data.Company);
+            Type(By.Name("address"), data.Address);
             return this;
         }
 
 
         public HelperContact UpdateForm(DataNewUser update)
         {
-            driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys(update.Home);
-            driver.FindElement(By.Name("mobile")).Clear();
-            driver.FindElement(By.Name("mobile")).SendKeys(update.Mobile);
-
+            Type(By.Name("home"), update.Home);
+            Type(By.Name("mobile"), update.Mobile);
             return this;
         }
 
@@ -114,16 +117,15 @@ namespace AddressbookWebTest
             return this;
         }
 
-        /*      public HelperContact AcceptDelete()
-              {
-                  Assert.IsTrue(Regex.IsMatch(CloseAlertAndGetItsText(), "^Delete 1 addresses[\\s\\S]$"));
-                  return this;
-              } */
-
         public HelperContact AcceptDelete()
         {
             driver.SwitchTo().Alert().Accept();
             return this;
+        }
+
+        public bool FindUser()
+        {
+            return IsElementPresent(By.Name("selected[]"));
         }
     }
 }

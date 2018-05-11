@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class UserCreationTest : BaseClassTest
+    public class UserCreationTest : AuthBaseClassTest
     {
 
         [Test]
@@ -20,9 +20,6 @@ namespace AddressbookWebTest
             newuser.Nickname = "IronMan";
             newuser.Company = "Stark Industries";
             newuser.Address = "USA, New-York";
-            newuser.Bday = "10";
-            newuser.Bmonth = "March";
-            newuser.Byear = "1963";
 
             app.Contacts.New(newuser);
 

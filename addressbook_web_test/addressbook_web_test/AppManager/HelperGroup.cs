@@ -17,39 +17,51 @@ namespace AddressbookWebTest
 
         public HelperGroup Create(DataGroup group)
         {
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
             InitCreateGroup();
             FillGroupForm(group);
             SubmitCreateGroup();
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
             return this;
         }
 
-        public HelperGroup Delete(int indexGroup)
+        public HelperGroup Delete(int indexGroup, DataGroup group)
         {
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
+            if (! FindGroup())
+            {
+                InitCreateGroup();
+                FillGroupForm(group);
+                SubmitCreateGroup();
+                manager.Navigation.OpenGroupPage();
+            }
+
             SelectGroup(indexGroup);
             DeleteGroup();
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
             return this;
         }
 
-        public HelperGroup Update(int indexGroup, DataGroup newData)
+        public HelperGroup Update(int indexGroup, DataGroup newData, DataGroup group)
         {
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
+            if (! FindGroup())
+            {
+                InitCreateGroup();
+                FillGroupForm(group);
+                SubmitCreateGroup();
+                manager.Navigation.OpenGroupPage();
+            }
+
             SelectGroup(indexGroup);
             EditGroup();
             FillGroupForm(newData);
             UpdateGroup();
-            OpenGroupPage();
+            manager.Navigation.OpenGroupPage();
             return this;
         }
 
-        public HelperGroup OpenGroupPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
-            return this;
-        }
+
 
         public HelperGroup InitCreateGroup()
         {
@@ -63,14 +75,16 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public bool FindGroup()
+        {
+            return IsElementPresent(By.Name("selected[]"));
+        }
+
         public HelperGroup FillGroupForm(DataGroup group)
         {
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(group.Name);
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(group.Header);
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(group.Footer);
+            Type(By.Name("group_name"), group.Name);
+            Type(By.Name("group_header"), group.Header);
+            Type(By.Name("group_footer"), group.Footer);
             return this;
         }
 

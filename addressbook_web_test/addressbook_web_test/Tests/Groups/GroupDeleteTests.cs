@@ -7,13 +7,17 @@ using NUnit.Framework;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class GroupDeleteTest : BaseClassTest
+    public class GroupDeleteTest : AuthBaseClassTest
     {
        
         [Test]
         public void DeleteGroupTest()
         {
-            app.Groups.Delete(1);
+            DataGroup group = new DataGroup("test");
+            group.Header = "test_header";
+            group.Footer = "test_footer";
+
+            app.Groups.Delete(1, group);
         }
     }
 }
