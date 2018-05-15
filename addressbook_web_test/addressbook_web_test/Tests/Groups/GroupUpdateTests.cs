@@ -21,7 +21,12 @@ namespace AddressbookWebTest
             group.Header = "test_header";
             group.Footer = "test_footer";
 
-            app.Groups.Update(1, newData, group);
+            if (!app.Groups.FindGroup())
+            {
+                app.Groups.Create(group);
+            }
+
+            app.Groups.Update(1, newData);
         }
     }
 }

@@ -27,34 +27,18 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperContact Delete(int v, DataNewUser data)
+        public HelperContact Delete(int v)
         {
             manager.Navigation.GoToHomePage();
-            if (! FindUser())
-            {
-                CreateNewUser();
-                FillUserForm(data);
-                AcceptCreateUser();
-                manager.Navigation.GoToHomePage();
-            }
-
             CheckDeleteUser(v);
             ClickDelete();
             AcceptDelete();
             return this;
         }
 
-        public HelperContact Update(DataNewUser userData, int indexEdit, DataNewUser data)
+        public HelperContact Update(DataNewUser userData, int indexEdit)
         {
             manager.Navigation.GoToHomePage();
-            if (! FindUser())
-            {
-                CreateNewUser();
-                FillUserForm(data);
-                AcceptCreateUser();
-                manager.Navigation.GoToHomePage();
-            }
-
             EditUser(indexEdit);
             UpdateForm(userData);
             UpdateUser();

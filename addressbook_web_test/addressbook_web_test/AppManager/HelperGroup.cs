@@ -25,34 +25,18 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperGroup Delete(int indexGroup, DataGroup group)
+        public HelperGroup Delete(int indexGroup)
         {
             manager.Navigation.OpenGroupPage();
-            if (! FindGroup())
-            {
-                InitCreateGroup();
-                FillGroupForm(group);
-                SubmitCreateGroup();
-                manager.Navigation.OpenGroupPage();
-            }
-
             SelectGroup(indexGroup);
             DeleteGroup();
             manager.Navigation.OpenGroupPage();
             return this;
         }
 
-        public HelperGroup Update(int indexGroup, DataGroup newData, DataGroup group)
+        public HelperGroup Update(int indexGroup, DataGroup newData)
         {
             manager.Navigation.OpenGroupPage();
-            if (! FindGroup())
-            {
-                InitCreateGroup();
-                FillGroupForm(group);
-                SubmitCreateGroup();
-                manager.Navigation.OpenGroupPage();
-            }
-
             SelectGroup(indexGroup);
             EditGroup();
             FillGroupForm(newData);

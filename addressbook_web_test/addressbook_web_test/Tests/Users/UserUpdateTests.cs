@@ -19,8 +19,11 @@ namespace AddressbookWebTest
             DataNewUser edit = new DataNewUser("Virginia", "Potts");
             edit.Home = "555-7720";
             edit.Mobile = "777-3564";
-
-            app.Contacts.Update(edit, 1, newuser);
+            if (!app.Contacts.FindUser())
+            {
+                app.Contacts.New(newuser);
+            }
+            app.Contacts.Update(edit, 1);
 
         }
     }
