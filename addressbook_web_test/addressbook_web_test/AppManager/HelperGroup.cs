@@ -25,6 +25,18 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public List<DataGroup> GetGroupList()
+        {
+            List<DataGroup> groups = new List<DataGroup>();
+            manager.Navigation.OpenGroupPage();
+            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
+            foreach (IWebElement element in elements)
+            {
+                groups.Add(new DataGroup(element.Text));
+            }
+            return groups;
+        }
+
         public HelperGroup Delete(int indexGroup)
         {
             manager.Navigation.OpenGroupPage();
@@ -74,7 +86,7 @@ namespace AddressbookWebTest
 
         public HelperGroup SelectGroup(int indexGroup)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + indexGroup + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (indexGroup+1) + "]")).Click();
             return this;
         }
 

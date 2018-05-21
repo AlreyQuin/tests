@@ -46,6 +46,19 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public List<DataNewUser> GetContactList()
+        {
+            List<DataNewUser> contacts = new List<DataNewUser>();
+            manager.Navigation.GoToHomePage();
+            ICollection<IWebElement> firstelements = driver.FindElements(By.CssSelector("#maintable td:nth-child(3)"));
+            ICollection<IWebElement> lastelements = driver.FindElements(By.CssSelector("#maintable td:nth-child(2)"));
+            for (var i = 0; i < firstelements.Count; i++)
+            {
+                contacts.Add(new DataNewUser(firstelements.ToArray()[i].Text, lastelements.ToArray()[i].Text));
+            }
+            return contacts;
+        }
+
         public HelperContact CreateNewUser()
         {
             driver.FindElement(By.LinkText("add new")).Click();
@@ -66,6 +79,8 @@ namespace AddressbookWebTest
 
         public HelperContact UpdateForm(DataNewUser update)
         {
+            Type(By.Name("firstname"), update.Firstname);
+            Type(By.Name("lastname"), update.Lastname);
             Type(By.Name("home"), update.Home);
             Type(By.Name("mobile"), update.Mobile);
             return this;
@@ -79,7 +94,7 @@ namespace AddressbookWebTest
 
         public HelperContact EditUser(int indexEdit)
         {
-            driver.FindElement(By.XPath("(//img[@alt='Edit'])[" + indexEdit + "]")).Click();
+            driver.FindElement(By.XPath("(//img[@alt='Edit'])[" + (indexEdit+1) + "]")).Click();
             return this;
         }
 
@@ -91,7 +106,7 @@ namespace AddressbookWebTest
 
         public HelperContact CheckDeleteUser(int indexDel)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + indexDel + "]")).Click();
+            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (indexDel+1) + "]")).Click();
             return this;
         }
 

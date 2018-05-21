@@ -19,7 +19,16 @@ namespace AddressbookWebTest
             {
                 app.Contacts.New(newuser);
             }
-            app.Contacts.Delete(1);
+
+            List<DataNewUser> oldConts = app.Contacts.GetContactList();
+
+            app.Contacts.Delete(0);
+
+            List<DataNewUser> newConts = app.Contacts.GetContactList();
+            oldConts.RemoveAt(0);
+            oldConts.Sort();
+            newConts.Sort();
+            Assert.AreEqual(oldConts, newConts);
         }
     }
 }
