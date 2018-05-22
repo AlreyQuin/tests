@@ -46,17 +46,35 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public int GetContactCount()
+        {
+            return driver.FindElements(By.Name("entry")).Count();
+        }
+
+        private List<DataNewUser> contactCache = null;
+
+        public string Last { get; private set; }
+
         public List<DataNewUser> GetContactList()
         {
-            List<DataNewUser> contacts = new List<DataNewUser>();
-            manager.Navigation.GoToHomePage();
-            ICollection<IWebElement> firstelements = driver.FindElements(By.CssSelector("#maintable td:nth-child(3)"));
-            ICollection<IWebElement> lastelements = driver.FindElements(By.CssSelector("#maintable td:nth-child(2)"));
-            for (var i = 0; i < firstelements.Count; i++)
+            if (contactCache == null)
             {
-                contacts.Add(new DataNewUser(firstelements.ToArray()[i].Text, lastelements.ToArray()[i].Text));
+                contactCache = new List<DataNewUser>();
+                List<DataNewUser> contacts = new List<DataNewUser>();
+                manager.Navigation.GoToHomePage();
+                ICollection<IWebElement> strs = driver.FindElements(By.Name("entry"));
+                foreach (IWebElement str in strs)
+                {
+                    ICollection<IWebElement> cells = str.FindElements(By.TagName("td"));
+                    contacts.Add(new DataNewUser(cells.ToArray()[2].Text, cells.ToArray()[1].Text));
+                    contactCache.Add(new DataNewUser(cells.ToArray()[2].Text, cells.ToArray()[1].Text)
+                    {
+                        Id = str.FindElement(By.TagName("input")).GetAttribute("value")
+                    });
+                }
+                return contacts;
             }
-            return contacts;
+            return new List<DataNewUser>(contactCache);
         }
 
         public HelperContact CreateNewUser()
@@ -89,6 +107,7 @@ namespace AddressbookWebTest
         public HelperContact AcceptCreateUser()
         {
             driver.FindElement(By.XPath("//input[@value='Enter']")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -101,6 +120,7 @@ namespace AddressbookWebTest
         public HelperContact UpdateUser()
         {
             driver.FindElement(By.XPath("(//input[@name='update'])[2]")).Click();
+            contactCache = null;
             return this;
         }
 
@@ -119,6 +139,7 @@ namespace AddressbookWebTest
         public HelperContact AcceptDelete()
         {
             driver.SwitchTo().Alert().Accept();
+            contactCache = null;
             return this;
         }
 

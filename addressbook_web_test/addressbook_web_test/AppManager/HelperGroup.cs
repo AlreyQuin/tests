@@ -25,16 +25,29 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public int GetGroupCount()
+        {
+            return driver.FindElements(By.CssSelector("span.group")).Count();
+        }
+
+        private List<DataGroup> groupCache = null;
+
         public List<DataGroup> GetGroupList()
         {
-            List<DataGroup> groups = new List<DataGroup>();
-            manager.Navigation.OpenGroupPage();
-            ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
-            foreach (IWebElement element in elements)
+            if (groupCache == null)
             {
-                groups.Add(new DataGroup(element.Text));
+                groupCache = new List<DataGroup>();
+                manager.Navigation.OpenGroupPage();
+                ICollection<IWebElement> elements = driver.FindElements(By.CssSelector("span.group"));
+                foreach (IWebElement element in elements)
+                {
+                    groupCache.Add(new DataGroup(element.Text)
+                    {
+                        Id = element.FindElement(By.TagName("input")).GetAttribute("value")
+                    });
+                }
             }
-            return groups;
+            return new List<DataGroup>(groupCache);
         }
 
         public HelperGroup Delete(int indexGroup)
@@ -68,6 +81,7 @@ namespace AddressbookWebTest
         public HelperGroup SubmitCreateGroup()
         {
             driver.FindElement(By.Name("submit")).Click();
+            groupCache = null;
             return this;
         }
 
@@ -93,6 +107,7 @@ namespace AddressbookWebTest
         public HelperGroup DeleteGroup()
         {
             driver.FindElement(By.Name("delete")).Click();
+            groupCache = null;
             return this;
         }
 
@@ -105,6 +120,7 @@ namespace AddressbookWebTest
         public HelperGroup UpdateGroup()
         {
             driver.FindElement(By.Name("update")).Click();
+            groupCache = null;
             return this;
         }
         

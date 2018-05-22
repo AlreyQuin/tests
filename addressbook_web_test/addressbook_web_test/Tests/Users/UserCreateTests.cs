@@ -25,6 +25,8 @@ namespace AddressbookWebTest
 
             app.Contacts.New(newuser);
 
+            Assert.AreEqual(oldConts.Count + 1, app.Contacts.GetContactCount());
+
             List<DataNewUser> newConts = app.Contacts.GetContactList();
             oldConts.Add(newuser);
             oldConts.Sort();

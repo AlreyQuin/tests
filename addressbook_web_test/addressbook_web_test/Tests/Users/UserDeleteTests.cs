@@ -21,14 +21,22 @@ namespace AddressbookWebTest
             }
 
             List<DataNewUser> oldConts = app.Contacts.GetContactList();
+            DataNewUser toBeRemoved = oldConts[0];
 
             app.Contacts.Delete(0);
+
+            Assert.AreEqual(oldConts.Count - 1, app.Contacts.GetContactCount());
 
             List<DataNewUser> newConts = app.Contacts.GetContactList();
             oldConts.RemoveAt(0);
             oldConts.Sort();
             newConts.Sort();
             Assert.AreEqual(oldConts, newConts);
+
+            foreach (DataNewUser user in newConts)
+            {
+                Assert.AreNotEqual(toBeRemoved.Id, user.Id);
+            }
         }
     }
 }

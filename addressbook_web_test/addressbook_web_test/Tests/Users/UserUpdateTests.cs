@@ -21,6 +21,7 @@ namespace AddressbookWebTest
             edit.Mobile = "777-3564";
 
             List<DataNewUser> oldConts = app.Contacts.GetContactList();
+            DataNewUser oldUser = oldConts[0];
 
             if (!app.Contacts.FindUser())
             {
@@ -28,12 +29,22 @@ namespace AddressbookWebTest
             }
             app.Contacts.Update(edit, 0);
 
+            Assert.AreEqual(oldConts.Count, app.Contacts.GetContactCount());
+
             List<DataNewUser> newConts = app.Contacts.GetContactList();
             oldConts[0].Firstname = edit.Firstname;
             oldConts[0].Lastname = edit.Lastname;
             oldConts.Sort();
             newConts.Sort();
             Assert.AreEqual(oldConts, newConts);
+
+            foreach (DataNewUser user in newConts)
+            {
+                if (user.Id == oldUser.Id)
+                {
+                    Assert.AreEqual(edit.Firstname, user.Firstname);
+                }
+            }
 
         }
     }
