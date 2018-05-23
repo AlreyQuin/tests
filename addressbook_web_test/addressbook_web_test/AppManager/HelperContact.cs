@@ -65,9 +65,9 @@ namespace AddressbookWebTest
                 ICollection<IWebElement> strs = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement str in strs)
                 {
-                    ICollection<IWebElement> cells = str.FindElements(By.TagName("td"));
-                    contacts.Add(new DataNewUser(cells.ToArray()[2].Text, cells.ToArray()[1].Text));
-                    contactCache.Add(new DataNewUser(cells.ToArray()[2].Text, cells.ToArray()[1].Text)
+                    var cells = str.FindElements(By.TagName("td")).ToArray();
+                    contacts.Add(new DataNewUser(cells[2].Text, cells[1].Text));
+                    contactCache.Add(new DataNewUser(cells[2].Text, cells[1].Text)
                     {
                         Id = str.FindElement(By.TagName("input")).GetAttribute("value")
                     });
