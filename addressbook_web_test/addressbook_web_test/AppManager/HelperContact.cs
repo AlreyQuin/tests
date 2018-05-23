@@ -60,19 +60,16 @@ namespace AddressbookWebTest
             if (contactCache == null)
             {
                 contactCache = new List<DataNewUser>();
-                List<DataNewUser> contacts = new List<DataNewUser>();
                 manager.Navigation.GoToHomePage();
                 ICollection<IWebElement> strs = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement str in strs)
                 {
                     var cells = str.FindElements(By.TagName("td")).ToArray();
-                    contacts.Add(new DataNewUser(cells[2].Text, cells[1].Text));
                     contactCache.Add(new DataNewUser(cells[2].Text, cells[1].Text)
                     {
                         Id = str.FindElement(By.TagName("input")).GetAttribute("value")
                     });
                 }
-                return contacts;
             }
             return new List<DataNewUser>(contactCache);
         }

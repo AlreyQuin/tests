@@ -42,4 +42,3 @@ C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csproj.CopyComplete
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.dll
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.pdb
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csprojResolveAssemblyReference.cache
