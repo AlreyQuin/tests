@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppManager\ApplicationManager.cs" />
+    <Compile Include="Tests\Contacts\SearchTest.cs" />
+    <Compile Include="Tests\Contacts\ContactInformatoinTest.cs" />
     <Compile Include="Tests\LoginTests.cs" />
     <Compile Include="Tests\AuthBaseClassTest.cs" />
     <Compile Include="Data\DataAccount.cs" />
@@ -71,12 +73,12 @@
     <Compile Include="AppManager\HelperContact.cs" />
     <Compile Include="AppManager\HelperGroup.cs" />
     <Compile Include="AppManager\HelperLogin.cs" />
-    <Compile Include="Data\DataNewUser.cs" />
+    <Compile Include="Data\DataNewContact.cs" />
     <Compile Include="AppManager\HelperNavigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\Users\UserCreateTests.cs" />
-    <Compile Include="Tests\Users\UserDeleteTests.cs" />
-    <Compile Include="Tests\Users\UserUpdateTests.cs" />
+    <Compile Include="Tests\Contacts\ContactCreateTests.cs" />
+    <Compile Include="Tests\Contacts\ContactDeleteTests.cs" />
+    <Compile Include="Tests\Contacts\ContactUpdateTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

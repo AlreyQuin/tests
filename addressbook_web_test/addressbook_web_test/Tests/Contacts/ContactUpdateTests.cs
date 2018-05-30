@@ -8,20 +8,20 @@ using NUnit.Framework;
 namespace AddressbookWebTest
 {
     [TestFixture]
-    public class UserUpdateTest : AuthBaseClassTest
+    public class ContactUpdateTest : AuthBaseClassTest
     {
 
         [Test]
-        public void UpdateUser()
+        public void UpdateContact()
         {
 
-            DataNewUser newuser = new DataNewUser("Tony", "Stark");
-            DataNewUser edit = new DataNewUser("Virginia", "Potts");
-            edit.Home = "555-7720";
-            edit.Mobile = "777-3564";
+            DataNewContact newuser = new DataNewContact("Tony", "Stark");
+            DataNewContact edit = new DataNewContact("Virginia", "Potts");
+            edit.HomePhone = "555-7720";
+            edit.MobilePhone = "777-3564";
 
-            List<DataNewUser> oldConts = app.Contacts.GetContactList();
-            DataNewUser oldUser = oldConts[0];
+            List<DataNewContact> oldConts = app.Contacts.GetContactList();
+            DataNewContact oldUser = oldConts[0];
 
             if (!app.Contacts.FindUser())
             {
@@ -31,14 +31,14 @@ namespace AddressbookWebTest
 
             Assert.AreEqual(oldConts.Count, app.Contacts.GetContactCount());
 
-            List<DataNewUser> newConts = app.Contacts.GetContactList();
+            List<DataNewContact> newConts = app.Contacts.GetContactList();
             oldConts[0].Firstname = edit.Firstname;
             oldConts[0].Lastname = edit.Lastname;
             oldConts.Sort();
             newConts.Sort();
             Assert.AreEqual(oldConts, newConts);
 
-            foreach (DataNewUser user in newConts)
+            foreach (DataNewContact user in newConts)
             {
                 if (user.Id == oldUser.Id)
                 {

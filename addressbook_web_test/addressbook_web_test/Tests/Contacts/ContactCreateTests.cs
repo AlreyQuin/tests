@@ -12,22 +12,22 @@ namespace AddressbookWebTest
     {
 
         [Test]
-        public void CreationUser()
+        public void CreationContact()
         {
-            
-            DataNewUser newuser = new DataNewUser("Tony", "Stark");
+
+            DataNewContact newuser = new DataNewContact("Tony", "Stark");
             newuser.Middlename = "Edward";
             newuser.Nickname = "IronMan";
             newuser.Company = "Stark Industries";
             newuser.Address = "USA, New-York";
 
-            List<DataNewUser> oldConts = app.Contacts.GetContactList();
+            List<DataNewContact> oldConts = app.Contacts.GetContactList();
 
             app.Contacts.New(newuser);
 
             Assert.AreEqual(oldConts.Count + 1, app.Contacts.GetContactCount());
 
-            List<DataNewUser> newConts = app.Contacts.GetContactList();
+            List<DataNewContact> newConts = app.Contacts.GetContactList();
             oldConts.Add(newuser);
             oldConts.Sort();
             newConts.Sort();

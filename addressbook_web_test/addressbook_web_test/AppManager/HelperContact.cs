@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
+using System.Text.RegularExpressions;
 
 namespace AddressbookWebTest
 {
@@ -18,7 +19,7 @@ namespace AddressbookWebTest
 
 
 
-        public HelperContact New(DataNewUser data)
+        public HelperContact New(DataNewContact data)
         {
             CreateNewUser();
             FillUserForm(data);
@@ -36,7 +37,7 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperContact Update(DataNewUser userData, int indexEdit)
+        public HelperContact Update(DataNewContact userData, int indexEdit)
         {
             manager.Navigation.GoToHomePage();
             EditUser(indexEdit);
@@ -46,32 +47,116 @@ namespace AddressbookWebTest
             return this;
         }
 
+
+
         public int GetContactCount()
         {
             return driver.FindElements(By.Name("entry")).Count();
         }
 
-        private List<DataNewUser> contactCache = null;
+        private List<DataNewContact> contactCache = null;
 
         public string Last { get; private set; }
 
-        public List<DataNewUser> GetContactList()
+        public List<DataNewContact> GetContactList()
         {
             if (contactCache == null)
             {
-                contactCache = new List<DataNewUser>();
+                contactCache = new List<DataNewContact>();
                 manager.Navigation.GoToHomePage();
                 ICollection<IWebElement> strs = driver.FindElements(By.Name("entry"));
                 foreach (IWebElement str in strs)
                 {
                     var cells = str.FindElements(By.TagName("td")).ToArray();
-                    contactCache.Add(new DataNewUser(cells[2].Text, cells[1].Text)
+                    contactCache.Add(new DataNewContact(cells[2].Text, cells[1].Text)
                     {
                         Id = str.FindElement(By.TagName("input")).GetAttribute("value")
                     });
                 }
             }
-            return new List<DataNewUser>(contactCache);
+            return new List<DataNewContact>(contactCache);
+        }
+
+        public DataNewContact GetContactInfoFromTable(int index)
+        {
+            manager.Navigation.GoToHomePage();
+            EditUser(index);
+            string firstname = driver.FindElement(By.Name("firstname")).GetAttribute("value");
+            string middlename = driver.FindElement(By.Name("middlename")).GetAttribute("value");
+            string lastname = driver.FindElement(By.Name("lastname")).GetAttribute("value");
+            string nickname = driver.FindElement(By.Name("nickname")).GetAttribute("value");
+            string company = driver.FindElement(By.Name("company")).GetAttribute("value");
+            string title = driver.FindElement(By.Name("title")).GetAttribute("value");
+            string address = driver.FindElement(By.Name("address")).GetAttribute("value");
+            string email = driver.FindElement(By.Name("email")).GetAttribute("value");
+            string email2 = driver.FindElement(By.Name("email2")).GetAttribute("value");
+            string email3 = driver.FindElement(By.Name("email3")).GetAttribute("value");
+            string homePhone = driver.FindElement(By.Name("home")).GetAttribute("value");
+            string mobilePhone = driver.FindElement(By.Name("mobile")).GetAttribute("value");
+            string workPhone = driver.FindElement(By.Name("work")).GetAttribute("value");
+            string fax = driver.FindElement(By.Name("fax")).GetAttribute("value");
+            string homepage = driver.FindElement(By.Name("homepage")).GetAttribute("value");
+            string address2 = driver.FindElement(By.Name("address2")).GetAttribute("value");
+            string phone2 = driver.FindElement(By.Name("phone2")).GetAttribute("value");
+            string notes = driver.FindElement(By.Name("notes")).GetAttribute("value");
+
+            return new DataNewContact(firstname, lastname)
+            {
+                Middlename = middlename,
+                Nickname = nickname,
+                Company = company,
+                Title = title,
+                Address = address,
+                Email = email,
+                Email2 = email2,
+                Email3 = email3,
+                HomePhone = homePhone,
+                MobilePhone = mobilePhone,
+                WorkPhone = workPhone,
+                Fax = fax,
+                Homepage = homepage,
+                Address2 = address2,
+                Phone2 = phone2,
+                Notes = notes
+            };
+        }
+
+        public DataNewContact GetContactInfoFromForm(int index)
+        {
+            manager.Navigation.GoToHomePage();
+            IList<IWebElement> contactsFromForm = driver.FindElements(By.Name("entry"))[index]
+                .FindElements(By.TagName("td"));
+            string firstname = contactsFromForm[2].Text;
+            string lastname = contactsFromForm[1].Text;
+            string address = contactsFromForm[3].Text;
+            string allEmails = contactsFromForm[4].Text;
+            string allPhones = contactsFromForm[5].Text;
+
+            return new DataNewContact(firstname, lastname)
+            {
+                Address = address,
+                AllEmails = allEmails,
+                AllPhones = allPhones
+            };
+        }
+
+        internal DataNewContact GetContactInfoFromDetails(int index)
+        {
+            manager.Navigation.GoToHomePage();
+            DetailsUser(index);
+            IList<IWebElement> contactsFromName = driver.FindElements(By.CssSelector("div#content b"));
+            string fullname = contactsFromName[0].Text;
+            string[] allName = fullname.Split();
+            string firstname = allName[0].Trim();
+            string lastname = allName[2].Trim();
+            IList<IWebElement> contactsFromDetails = driver.FindElements(By.CssSelector("div#content"));
+            string allDataContact = contactsFromDetails[0].Text;
+
+            return new DataNewContact(firstname, lastname)
+            {
+                FullData = allDataContact
+            };
+
         }
 
         public HelperContact CreateNewUser()
@@ -80,7 +165,7 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperContact FillUserForm(DataNewUser data)
+        public HelperContact FillUserForm(DataNewContact data)
         {
             Type(By.Name("firstname"), data.Firstname);
             Type(By.Name("middlename"), data.Middlename);
@@ -92,12 +177,12 @@ namespace AddressbookWebTest
         }
 
 
-        public HelperContact UpdateForm(DataNewUser update)
+        public HelperContact UpdateForm(DataNewContact update)
         {
             Type(By.Name("firstname"), update.Firstname);
             Type(By.Name("lastname"), update.Lastname);
-            Type(By.Name("home"), update.Home);
-            Type(By.Name("mobile"), update.Mobile);
+            Type(By.Name("home"), update.HomePhone);
+            Type(By.Name("mobile"), update.MobilePhone);
             return this;
         }
 
@@ -110,7 +195,17 @@ namespace AddressbookWebTest
 
         public HelperContact EditUser(int indexEdit)
         {
-            driver.FindElement(By.XPath("(//img[@alt='Edit'])[" + (indexEdit+1) + "]")).Click();
+            driver.FindElements(By.Name("entry"))[indexEdit]
+                .FindElements(By.TagName("td"))[7]
+                .FindElement(By.TagName("a")).Click();
+            return this;
+        }
+
+        public HelperContact DetailsUser(int indexEdit)
+        {
+            driver.FindElements(By.Name("entry"))[indexEdit]
+                .FindElements(By.TagName("td"))[6]
+                .FindElement(By.TagName("a")).Click();
             return this;
         }
 
@@ -143,6 +238,14 @@ namespace AddressbookWebTest
         public bool FindUser()
         {
             return IsElementPresent(By.Name("selected[]"));
+        }
+
+        public int GetNumberOfSearchResults()
+        {
+            manager.Navigation.GoToHomePage();
+            string lable = driver.FindElement(By.TagName("lable")).Text;
+            Match m = new Regex(@"\d+").Match(lable);
+            return Int32.Parse(m.Value);
         }
     }
 }

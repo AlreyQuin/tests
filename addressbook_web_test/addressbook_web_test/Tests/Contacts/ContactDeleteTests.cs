@@ -12,28 +12,28 @@ namespace AddressbookWebTest
     {
 
         [Test]
-        public void DeleteUser()
+        public void DeleteContact()
         {
-            DataNewUser newuser = new DataNewUser("Tony", "Stark");
+            DataNewContact newuser = new DataNewContact("Tony", "Stark");
             if (!app.Contacts.FindUser())
             {
                 app.Contacts.New(newuser);
             }
 
-            List<DataNewUser> oldConts = app.Contacts.GetContactList();
-            DataNewUser toBeRemoved = oldConts[0];
+            List<DataNewContact> oldConts = app.Contacts.GetContactList();
+            DataNewContact toBeRemoved = oldConts[0];
 
             app.Contacts.Delete(0);
 
             Assert.AreEqual(oldConts.Count - 1, app.Contacts.GetContactCount());
 
-            List<DataNewUser> newConts = app.Contacts.GetContactList();
+            List<DataNewContact> newConts = app.Contacts.GetContactList();
             oldConts.RemoveAt(0);
             oldConts.Sort();
             newConts.Sort();
             Assert.AreEqual(oldConts, newConts);
 
-            foreach (DataNewUser user in newConts)
+            foreach (DataNewContact user in newConts)
             {
                 Assert.AreNotEqual(toBeRemoved.Id, user.Id);
             }
