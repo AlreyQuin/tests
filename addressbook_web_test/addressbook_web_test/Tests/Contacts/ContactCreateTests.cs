@@ -40,14 +40,8 @@ namespace AddressbookWebTest
         }
 
         [Test, TestCaseSource("RandomContactDataProvider")]
-        public void CreationContact()
+        public void CreationContact(DataNewContact newuser)
         {
-
-            DataNewContact newuser = new DataNewContact("Tony", "Stark");
-            newuser.Middlename = "Edward";
-            newuser.Nickname = "IronMan";
-            newuser.Company = "Stark Industries";
-            newuser.Address = "USA, New-York";
 
             List<DataNewContact> oldConts = app.Contacts.GetContactList();
 
