@@ -10,13 +10,25 @@ namespace AddressbookWebTest
     [TestFixture]
     public class GroupCreationTests : AuthBaseClassTest
     {
-
-        [Test]
-        public void GroupCreation()
+        public static IEnumerable<DataGroup> RandomGroupDataProvider()
         {
-            DataGroup group = new DataGroup("test");
-            group.Header = "test_header";
-            group.Footer = "test_footer";
+            List<DataGroup> groups = new List<DataGroup>();
+            for (int i = 0; i < 5; i++)
+            {
+                groups.Add(new DataGroup(GenerateRandomString(30))
+                {
+                    Header = GenerateRandomString(100),
+                    Footer = GenerateRandomString(100)
+                });
+            }
+            return groups;
+        }
+
+
+
+        [Test, TestCaseSource("RandomGroupDataProvider")]
+        public void GroupCreation(DataGroup group)
+        {
 
             List<DataGroup> oldGroups = app.Groups.GetGroupList();
 
@@ -31,25 +43,6 @@ namespace AddressbookWebTest
             Assert.AreEqual(oldGroups, newGroups);
         }
 
-        [Test]
-        public void EmptyGroupCreation()
-        {
-            DataGroup group = new DataGroup("");
-            group.Header = "";
-            group.Footer = "";
-
-            List<DataGroup> oldGroups = app.Groups.GetGroupList();
-
-            app.Groups.Create(group);
-
-            Assert.AreEqual(oldGroups.Count + 1, app.Groups.GetGroupCount());
-
-            List<DataGroup> newGroups = app.Groups.GetGroupList();
-            oldGroups.Add(group);
-            oldGroups.Sort();
-            newGroups.Sort();
-            Assert.AreEqual(oldGroups, newGroups);
-        }
 
         [Test]
         public void BadNameGroupCreation()

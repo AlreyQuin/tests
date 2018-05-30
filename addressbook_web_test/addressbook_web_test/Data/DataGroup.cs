@@ -34,7 +34,7 @@ namespace AddressbookWebTest
 
         public override string ToString()
         {
-            return Name;
+            return "name = " + Name + "\nheader = " + Header + "\nfooter = " + Footer;
         }
 
         public int CompareTo(DataGroup other)
