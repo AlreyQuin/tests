@@ -29,7 +29,6 @@ namespace AddressbookWebTest
             DataNewContact fromTable = app.Contacts.GetContactInfoFromTable(0);
             DataNewContact fromDetails = app.Contacts.GetContactInfoFromDetails(0);
 
-            Assert.AreEqual(fromTable, fromDetails);
             Assert.AreEqual(fromTable.FullData, fromDetails.FullData);
         }
     }

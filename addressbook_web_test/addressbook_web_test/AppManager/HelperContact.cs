@@ -144,15 +144,10 @@ namespace AddressbookWebTest
         {
             manager.Navigation.GoToHomePage();
             DetailsUser(index);
-            IList<IWebElement> contactsFromName = driver.FindElements(By.CssSelector("div#content b"));
-            string fullname = contactsFromName[0].Text;
-            string[] allName = fullname.Split();
-            string firstname = allName[0].Trim();
-            string lastname = allName[2].Trim();
             IList<IWebElement> contactsFromDetails = driver.FindElements(By.CssSelector("div#content"));
             string allDataContact = contactsFromDetails[0].Text;
 
-            return new DataNewContact(firstname, lastname)
+            return new DataNewContact(null, null)
             {
                 FullData = allDataContact
             };
