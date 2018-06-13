@@ -70,8 +70,14 @@ namespace AddressbookTestDataGenerators
                         Notes = BaseClassTest.GenerateRandomString(40)
                     });
                 }
-
-                WriteContactsToXml(contacts, writer);
+                if (format == "xml")
+                {
+                    WriteContactsToXml(contacts, writer);
+                }
+                else
+                {
+                    System.Console.Out.Write("Unrecognized format" + format);
+                }
                 writer.Close();
             }
             
