@@ -8,9 +8,6 @@ D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\obj\Deb
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\addressbook_web_test.dll
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\WebDriver.dll
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\nunit.framework.dll
@@ -18,3 +15,8 @@ D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Deb
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\WebDriver.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\nunit.framework.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\obj\Debug\addressbook_test_data_generators.csproj.CopyComplete
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\Groups.xml
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\Contacts.xml

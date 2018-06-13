@@ -2,6 +2,9 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using NUnit.Framework;
 
@@ -39,7 +42,15 @@ namespace AddressbookWebTest
             return contact;
         }
 
-        [Test, TestCaseSource("RandomContactDataProvider")]
+        public static IEnumerable<DataNewContact> ContactDataFromXmlFile()
+        {
+            List<DataNewContact> contacts = new List<DataNewContact>();
+            return (List<DataNewContact>)
+                new XmlSerializer(typeof(List<DataNewContact>))
+                .Deserialize(new StreamReader(@"Contacts.xml"));
+        }
+
+        [Test, TestCaseSource("ContactDataFromXmlFile")]
         public void CreationContact(DataNewContact newuser)
         {
 

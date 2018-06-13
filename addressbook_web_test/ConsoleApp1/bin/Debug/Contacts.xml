@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDataNewContact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataNewContact>
+    <Firstname>'&amp;,</Firstname>
+    <Middlename>M&lt;#``;S==&amp;)</Middlename>
+    <Lastname>Y&amp;[$*$)V</Lastname>
+    <Nickname>'0O1]"&lt;V3+M</Nickname>
+    <Title>!])KGWX'$)ZV</Title>
+    <Company>+Z4&amp;.K $&gt;RW,T.#N $CP&gt;_#2(XG/"5^7Z8R)(P%AMBD+3</Company>
+    <Address>THU:#&amp;8&amp;&lt;-W"^8$R"*U@3&lt;=[F1`"#];Y`K$`;I1Y`U]E2&amp;S</Address>
+    <HomePhone>=\@:7T,</HomePhone>
+    <MobilePhone>+[US</MobilePhone>
+    <WorkPhone>6</WorkPhone>
+    <Fax />
+    <Email>R_"34%7</Email>
+    <Email2>Y]A?@Y</Email2>
+    <Email3>@?2F(=!B-</Email3>
+    <Homepage>LU@U?RKR=T</Homepage>
+    <Address2>$@:8E&amp;B;3MZ3365UP\$Q=WUI1XG;+WN#</Address2>
+    <Phone2>4</Phone2>
+    <Notes>`Y.D7A([SSA-?*^[W</Notes>
+    <AllPhones>=\@:7T,
++[US
+6</AllPhones>
+    <AllEmails>R_"34%7
+Y]A?@Y
+@?2F(=!B-</AllEmails>
+    <FullName>'&amp;, M&lt;#``;S==&amp;) Y&amp;[$*$)V</FullName>
+    <FullData>'&amp;, M&lt;#``;S==&amp;) Y&amp;[$*$)V
+'0O1]"&lt;V3+M
+!])KGWX'$)ZV
++Z4&amp;.K $&gt;RW,T.#N $CP&gt;_#2(XG/"5^7Z8R)(P%AMBD+3
+THU:#&amp;8&amp;&lt;-W"^8$R"*U@3&lt;=[F1`"#];Y`K$`;I1Y`U]E2&amp;S
+
+H: =\@:7T,
+M: +[US
+W: 6
+
+R_"34%7
+Y]A?@Y
+@?2F(=!B-
+Homepage:
+LU@U?RKR=T
+
+
+$@:8E&amp;B;3MZ3365UP\$Q=WUI1XG;+WN#
+
+P: 4
+
+`Y.D7A([SSA-?*^[W</FullData>
+  </DataNewContact>
+  <DataNewContact>
+    <Firstname>#Y</Firstname>
+    <Middlename>N@'</Middlename>
+    <Lastname>LR</Lastname>
+    <Nickname>=`W.`Z6</Nickname>
+    <Title>B8N05\"WQK(0.]YK"&lt;.</Title>
+    <Company>'(WX:X?T]3.FV!9&gt;</Company>
+    <Address>TD3J\6#9X#A(,,DL!W:BWW&gt;&gt;/[?&lt;C&lt;-D:_/Y\L,ST?CV_LQ&amp;KZU+`]V^&amp;V:!YHW&lt;W^N.</Address>
+    <HomePhone>MQ6KIO84I@</HomePhone>
+    <MobilePhone>*8RJH"</MobilePhone>
+    <WorkPhone>&gt;)2R'2</WorkPhone>
+    <Fax>[,</Fax>
+    <Email>'`!_C)_)&gt;B</Email>
+    <Email2>.&gt;J&gt;6</Email2>
+    <Email3>XAV-UU91%L[K%</Email3>
+    <Homepage>ODP-J?FH/T</Homepage>
+    <Address2>*A.0LJ4R;4:6&lt;3+JN&gt;&gt;$?:"JKO=UX101"MK4+!9"GZJ,4-4[?VY</Address2>
+    <Phone2>RP</Phone2>
+    <Notes>Q</Notes>
+    <AllPhones>MQ6KIO84I@
+*8RJH
+&gt;2R2</AllPhones>
+    <AllEmails>'`!_C)_)&gt;B
+.&gt;J&gt;6
+XAV-UU91%L[K%</AllEmails>
+    <FullName>#Y N@' LR</FullName>
+    <FullData>#Y N@' LR
+=`W.`Z6
+B8N05\"WQK(0.]YK"&lt;.
+'(WX:X?T]3.FV!9&gt;
+TD3J\6#9X#A(,,DL!W:BWW&gt;&gt;/[?&lt;C&lt;-D:_/Y\L,ST?CV_LQ&amp;KZU+`]V^&amp;V:!YHW&lt;W^N.
+
+H: MQ6KIO84I@
+M: *8RJH"
+W: &gt;)2R'2
+F: [,
+
+'`!_C)_)&gt;B
+.&gt;J&gt;6
+XAV-UU91%L[K%
+Homepage:
+ODP-J?FH/T
+
+
+*A.0LJ4R;4:6&lt;3+JN&gt;&gt;$?:"JKO=UX101"MK4+!9"GZJ,4-4[?VY
+
+P: RP
+
+Q</FullData>
+  </DataNewContact>
+</ArrayOfDataNewContact>

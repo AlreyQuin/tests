@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDataGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DataGroup>
+    <Name>FU8 Z&gt;EF^</Name>
+    <Header />
+    <Footer>9YF</Footer>
+  </DataGroup>
+  <DataGroup>
+    <Name>?</Name>
+    <Header>&amp;</Header>
+    <Footer>SR@3&amp;ZDM1</Footer>
+  </DataGroup>
+</ArrayOfDataGroup>

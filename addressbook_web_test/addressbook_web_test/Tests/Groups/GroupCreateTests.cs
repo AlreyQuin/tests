@@ -3,6 +3,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 using NUnit.Framework;
 
@@ -25,7 +27,7 @@ namespace AddressbookWebTest
             return groups;
         }
 
-        public static IEnumerable<DataGroup> GroupDataFromFile()
+        public static IEnumerable<DataGroup> GroupDataFromCsvFile()
         {
             List<DataGroup> groups = new List<DataGroup>();
             string[] lines = File.ReadAllLines(@"Groups.csv");
@@ -41,7 +43,15 @@ namespace AddressbookWebTest
             return groups;
         }
 
-        [Test, TestCaseSource("GroupDataFromFile")]
+        public static IEnumerable<DataGroup> GroupDataFromXmlFile()
+        {
+            List<DataGroup> groups = new List<DataGroup>();
+            return (List<DataGroup>) 
+                new XmlSerializer(typeof(List<DataGroup>))
+                .Deserialize(new StreamReader(@"Groups.xml"));
+        }
+
+        [Test, TestCaseSource("GroupDataFromXmlFile")]
         public void GroupCreation(DataGroup group)
         {
 

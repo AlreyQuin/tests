@@ -14,6 +14,10 @@ namespace AddressbookWebTest
             Name = name;
         }
 
+        public DataGroup()
+        {
+        }
+
         public bool Equals(DataGroup other)
         {
             if (Object.ReferenceEquals(other, null))
