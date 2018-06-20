@@ -52,11 +52,11 @@ namespace AddressbookTestDataGenerators
                     contacts.Add(new DataNewContact(BaseClassTest.GenerateRandomString(5), 
                         BaseClassTest.GenerateRandomString(10))
                     {
-                        Middlename = BaseClassTest.GenerateRandomString(30),
-                        Nickname = BaseClassTest.GenerateRandomString(30),
+                        Middlename = BaseClassTest.GenerateRandomString(20),
+                        Nickname = BaseClassTest.GenerateRandomString(20),
                         Title = BaseClassTest.GenerateRandomString(20),
-                        Company = BaseClassTest.GenerateRandomString(50),
-                        Address = BaseClassTest.GenerateRandomString(100),
+                        Company = BaseClassTest.GenerateRandomString(10),
+                        Address = BaseClassTest.GenerateRandomString(30),
                         HomePhone = BaseClassTest.GenerateRandomString(10),
                         MobilePhone = BaseClassTest.GenerateRandomString(10),
                         WorkPhone = BaseClassTest.GenerateRandomString(10),
@@ -65,9 +65,9 @@ namespace AddressbookTestDataGenerators
                         Email2 = BaseClassTest.GenerateRandomString(15),
                         Email3 = BaseClassTest.GenerateRandomString(15),
                         Homepage = BaseClassTest.GenerateRandomString(20),
-                        Address2 = BaseClassTest.GenerateRandomString(100),
+                        Address2 = BaseClassTest.GenerateRandomString(30),
                         Phone2 = BaseClassTest.GenerateRandomString(10),
-                        Notes = BaseClassTest.GenerateRandomString(40)
+                        Notes = BaseClassTest.GenerateRandomString(10)
                     });
                 }
                 if (format == "xml")

@@ -70,10 +70,30 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public HelperGroup DeleteById(DataGroup group)
+        {
+            manager.Navigation.OpenGroupPage();
+            SelectGroupById(group.Id);
+            DeleteGroup();
+            manager.Navigation.OpenGroupPage();
+            return this;
+        }
+
         public HelperGroup Update(int indexGroup, DataGroup newData)
         {
             manager.Navigation.OpenGroupPage();
             SelectGroup(indexGroup);
+            EditGroup();
+            FillGroupForm(newData);
+            UpdateGroup();
+            manager.Navigation.OpenGroupPage();
+            return this;
+        }
+
+        public HelperGroup UpdateById(DataGroup group, DataGroup newData)
+        {
+            manager.Navigation.OpenGroupPage();
+            SelectGroupById(group.Id);
             EditGroup();
             FillGroupForm(newData);
             UpdateGroup();
@@ -112,6 +132,12 @@ namespace AddressbookWebTest
         public HelperGroup SelectGroup(int indexGroup)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (indexGroup+1) + "]")).Click();
+            return this;
+        }
+
+        public HelperGroup SelectGroupById(String id)
+        {
+            driver.FindElement(By.XPath("(//input[@name='selected[]' and @value=" + id + "])")).Click();
             return this;
         }
 

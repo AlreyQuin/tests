@@ -37,6 +37,15 @@ namespace AddressbookWebTest
             return this;
         }
 
+        public HelperContact DeleteById(DataNewContact contact)
+        {
+            manager.Navigation.GoToHomePage();
+            CheckDeleteUserById(contact.Id);
+            ClickDelete();
+            AcceptDelete();
+            return this;
+        }
+
         public HelperContact Update(DataNewContact userData, int indexEdit)
         {
             manager.Navigation.GoToHomePage();
@@ -214,6 +223,12 @@ namespace AddressbookWebTest
         public HelperContact CheckDeleteUser(int indexDel)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (indexDel+1) + "]")).Click();
+            return this;
+        }
+
+        public HelperContact CheckDeleteUserById(String id)
+        {
+            driver.FindElement(By.XPath(@"//tr[@name='entry']/td[@class='center']/input[@id='" + id + "']")).Click();
             return this;
         }
 
