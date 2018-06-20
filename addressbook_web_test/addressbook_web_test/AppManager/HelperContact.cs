@@ -8,6 +8,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System.Text.RegularExpressions;
 
+
 namespace AddressbookWebTest
 {
     public class HelperContact : HelperBase
@@ -31,19 +32,60 @@ namespace AddressbookWebTest
         public HelperContact Delete(int v)
         {
             manager.Navigation.GoToHomePage();
-            CheckDeleteUser(v);
+            CheckUser(v);
             ClickDelete();
             AcceptDelete();
+            manager.Navigation.GoToHomePage();
             return this;
         }
 
         public HelperContact DeleteById(DataNewContact contact)
         {
             manager.Navigation.GoToHomePage();
-            CheckDeleteUserById(contact.Id);
+            CheckUserById(contact.Id);
             ClickDelete();
             AcceptDelete();
+            manager.Navigation.GoToHomePage();
             return this;
+        }
+
+        internal void AddContactToGroups(DataNewContact cont, DataGroup group)
+        {
+            manager.Navigation.GoToHomePage();
+            SelectGroupFilter("[all]");
+            CheckUserById(cont.Id);
+            SelectGroupToAdd(group.Name);
+            CommitAdd();
+        }
+
+        internal void DeleteContactFromGroups(DataNewContact cont, DataGroup group)
+        {
+            manager.Navigation.GoToHomePage();
+            SelectGroupFilter(group.Name);
+            CheckUserById(cont.Id);
+            RemoveFromGroup();
+        }
+
+        public void RemoveFromGroup()
+        {
+            driver.FindElement(By.Name("remove")).Click();
+        }
+
+        public void CommitAdd()
+        {
+            driver.FindElement(By.Name("add")).Click();
+        }
+
+        public void SelectGroupToAdd(string name)
+        {
+            new SelectElement(driver.FindElement(By.Name("to_group"))).SelectByText(name);
+        }
+
+
+
+        public void SelectGroupFilter(string text)
+        {
+            new SelectElement(driver.FindElement(By.Name("group"))).SelectByText(text);
         }
 
         public HelperContact Update(DataNewContact userData, int indexEdit)
@@ -220,15 +262,15 @@ namespace AddressbookWebTest
             return this;
         }
 
-        public HelperContact CheckDeleteUser(int indexDel)
+        public HelperContact CheckUser(int indexDel)
         {
             driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + (indexDel+1) + "]")).Click();
             return this;
         }
 
-        public HelperContact CheckDeleteUserById(String id)
+        public HelperContact CheckUserById(String id)
         {
-            driver.FindElement(By.XPath(@"//tr[@name='entry']/td[@class='center']/input[@id='" + id + "']")).Click();
+            driver.FindElement(By.Id(id)).Click();
             return this;
         }
 

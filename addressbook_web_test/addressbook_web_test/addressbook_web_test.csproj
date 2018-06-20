@@ -77,6 +77,8 @@
   <ItemGroup>
     <Compile Include="AppManager\ApplicationManager.cs" />
     <Compile Include="Data\AddressBookDB.cs" />
+    <Compile Include="Data\GroupContactRelation.cs" />
+    <Compile Include="Tests\AddContactToGroupTests.cs" />
     <Compile Include="Tests\Contacts\SearchTest.cs" />
     <Compile Include="Tests\Contacts\ContactInformatoinTest.cs" />
     <Compile Include="Tests\Contacts\ContactTestBase.cs" />

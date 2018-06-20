@@ -26,3 +26,5 @@ D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Deb
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\linq2db.pdb
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\linq2db.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\MySql.Data.xml
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\WebDriver.Support.dll
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\ConsoleApp1\bin\Debug\WebDriver.Support.xml
