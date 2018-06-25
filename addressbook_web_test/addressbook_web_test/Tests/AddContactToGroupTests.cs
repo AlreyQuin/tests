@@ -35,7 +35,10 @@ namespace AddressbookWebTest
                 {
                     contWithoutGroups.Add(cont);
                 }
-                
+            }
+            if (contWithoutGroups.Count == 0)
+            {
+                app.Contacts.New(newuser);
             }
 
             DataGroup group = DataGroup.GetAllGroup()[0];
