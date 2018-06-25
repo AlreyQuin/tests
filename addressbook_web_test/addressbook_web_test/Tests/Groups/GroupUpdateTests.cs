@@ -21,13 +21,15 @@ namespace AddressbookWebTest
             newGroup.Header = "test_header";
             newGroup.Footer = "test_footer";
 
-            List<DataGroup> oldGroups = DataGroup.GetAllGroup();
-            DataGroup oldData = oldGroups[0];
-
-            if (!app.Groups.FindGroup())
+            if (!app.Groups.FindGroups())
             {
                 app.Groups.Create(newGroup);
             }
+
+            List<DataGroup> oldGroups = DataGroup.GetAllGroup();
+            DataGroup oldData = oldGroups[0];
+
+
 
             app.Groups.UpdateById(oldData, newData);
 

@@ -49,7 +49,13 @@ namespace AddressbookWebTest
             return this;
         }
 
-        internal void AddContactToGroups(DataNewContact cont, DataGroup group)
+        public bool FindUsers()
+        {
+            manager.Navigation.GoToHomePage();
+            return FindUser();
+        }
+
+        public void AddContactToGroups(DataNewContact cont, DataGroup group)
         {
             manager.Navigation.GoToHomePage();
             SelectGroupFilter("[all]");
@@ -58,7 +64,7 @@ namespace AddressbookWebTest
             CommitAdd();
         }
 
-        internal void DeleteContactFromGroups(DataNewContact cont, DataGroup group)
+        public void DeleteContactFromGroups(DataNewContact cont, DataGroup group)
         {
             manager.Navigation.GoToHomePage();
             SelectGroupFilter(group.Name);

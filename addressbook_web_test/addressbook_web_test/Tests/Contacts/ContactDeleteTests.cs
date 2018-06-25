@@ -16,7 +16,7 @@ namespace AddressbookWebTest
         public void DeleteContact()
         {
             DataNewContact newuser = new DataNewContact("Tony", "Stark");
-            if (!app.Contacts.FindUser())
+            if (!app.Contacts.FindUsers())
             {
                 app.Contacts.New(newuser);
             }

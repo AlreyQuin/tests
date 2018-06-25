@@ -20,13 +20,14 @@ namespace AddressbookWebTest
             edit.HomePhone = "555-7720";
             edit.MobilePhone = "777-3564";
 
-            List<DataNewContact> oldConts = DataNewContact.GetAllContact();
-            DataNewContact oldUser = oldConts[0];
-
-            if (!app.Contacts.FindUser())
+            if (!app.Contacts.FindUsers())
             {
                 app.Contacts.New(newuser);
             }
+
+            List<DataNewContact> oldConts = DataNewContact.GetAllContact();
+            DataNewContact oldUser = oldConts[0];
+
             app.Contacts.Update(edit, 0);
 
             Assert.AreEqual(oldConts.Count, app.Contacts.GetContactCount());

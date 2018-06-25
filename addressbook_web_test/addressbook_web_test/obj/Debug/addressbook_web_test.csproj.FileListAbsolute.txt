@@ -42,7 +42,6 @@ C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csproj.CopyComplete
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.dll
 C:\Users\Arley\Source\Repos\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.pdb
-D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csprojResolveAssemblyReference.cache
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Groups.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\Contacts.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\addressbook_web_test.dll.config
@@ -51,3 +50,4 @@ D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_tes
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\linq2db.pdb
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\linq2db.xml
 D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\bin\Debug\MySql.Data.xml
+D:\Tests\Selenium\SoftwareTesting\tests\addressbook_web_test\addressbook_web_test\obj\Debug\addressbook_web_test.csprojResolveAssemblyReference.cache

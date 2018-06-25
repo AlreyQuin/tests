@@ -18,13 +18,14 @@ namespace AddressbookWebTest
             newGroup.Header = "test_header";
             newGroup.Footer = "test_footer";
 
-            List<DataGroup> oldGroups = DataGroup.GetAllGroup();
-            DataGroup toBeRemoved = oldGroups[0];
-
-            if (!app.Groups.FindGroup())
+            if (!app.Groups.FindGroups())
             {
                 app.Groups.Create(newGroup);
             }
+
+            List<DataGroup> oldGroups = DataGroup.GetAllGroup();
+            DataGroup toBeRemoved = oldGroups[0];
+
             app.Groups.DeleteById(toBeRemoved);
 
             Assert.AreEqual(oldGroups.Count - 1, app.Groups.GetGroupCount());

@@ -101,7 +101,11 @@ namespace AddressbookWebTest
             return this;
         }
 
-
+        public bool FindGroups()
+        {
+            manager.Navigation.OpenGroupPage();
+            return FindGroup();
+        }
 
         public HelperGroup InitCreateGroup()
         {
